@@ -86,12 +86,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    public void Goto(View view) {
-//        Intent intent = new Intent(this, DisplayActivity.class);
-//
-//        intentActivityResultLauncher.launch(intent);
-//
-//    }
+    public void Goto(View view) {
+       Intent intent = new Intent(this, DisplayActivity.class);
+
+        intentActivityResultLauncher.launch(intent);
+
+    }
 
 }
 
