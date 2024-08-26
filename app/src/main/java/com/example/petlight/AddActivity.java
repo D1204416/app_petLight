@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView imageView;
@@ -30,7 +30,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_add);
 
         imageView = findViewById(R.id.imageView);
         Button buttonUpload = findViewById(R.id.button_upload);
@@ -52,7 +52,7 @@ public class MainActivity2 extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "选择图片"), PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(intent, "選擇圖片"), PICK_IMAGE_REQUEST);
     }
 
     @Override
@@ -61,25 +61,25 @@ public class MainActivity2 extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri imageUri = data.getData();
             try {
-                // 使用 BitmapFactory.Options 进行图片压缩
+                // 使用 BitmapFactory.Options 進行圖片壓縮
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
 
-                // 获取原始图片尺寸
+                // 獲取原始圖片尺寸
                 InputStream inputStream = getContentResolver().openInputStream(imageUri);
                 BitmapFactory.decodeStream(inputStream, null, options);
                 inputStream.close();
 
-                // 计算压缩比例
-                options.inSampleSize = calculateInSampleSize(options, 300, 300); // 目标宽高
+                // 計算壓縮比例
+                options.inSampleSize = calculateInSampleSize(options, 300, 300); // 目標寬高
                 options.inJustDecodeBounds = false;
 
-                // 再次打开图片并进行压缩
+                // 再次打開圖片進行壓縮
                 inputStream = getContentResolver().openInputStream(imageUri);
                 selectedImageBitmap = BitmapFactory.decodeStream(inputStream, null, options);
                 inputStream.close();
 
-                // 设置压缩后的图片到 ImageView
+                // 設置壓縮後的圖片到 ImageView
                 imageView.setImageBitmap(selectedImageBitmap);
 
             } catch (IOException e) {
@@ -88,7 +88,7 @@ public class MainActivity2 extends AppCompatActivity {
         }
     }
 
-    // 计算 inSampleSize 方法，用于确定缩放比例
+    // 計算 inSampleSize 方法，用於確定縮放比例
     private int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         final int height = options.outHeight;
         final int width = options.outWidth;
@@ -129,7 +129,7 @@ public class MainActivity2 extends AppCompatActivity {
         PetInfo petInfo = new PetInfo(name, breed, location, phone, image);
         petInfoList.add(petInfo);
 
-        Intent intent = new Intent(MainActivity2.this, DisplayActivity.class);
+        Intent intent = new Intent(AddActivity.this, DisplayActivity.class);
         startActivity(intent);
     }
 }

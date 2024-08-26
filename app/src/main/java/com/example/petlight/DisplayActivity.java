@@ -16,12 +16,12 @@ public class DisplayActivity extends AppCompatActivity {
         Button buttonBack = findViewById(R.id.button_back);
 
         // 直接使用 MainActivity2 中的靜態列表
-        PetInfoAdapter adapter = new PetInfoAdapter(this, MainActivity2.petInfoList);
+        PetInfoAdapter adapter = new PetInfoAdapter(this, AddActivity.petInfoList);
         listView.setAdapter(adapter);
 
-        // 設置反回按鈕的點擊事件，返回 MainActivity2
+        // 設置反回按鈕的點擊事件，返回 AddActivity
         buttonBack.setOnClickListener(v -> {
-            Intent backIntent = new Intent(DisplayActivity.this, MainActivity2.class);
+            Intent backIntent = new Intent(DisplayActivity.this, AddActivity.class);
             startActivity(backIntent);
             finish(); // 结束當前活動
         });
