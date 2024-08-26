@@ -25,8 +25,8 @@
 
     <FrameLayout
         android:id="@+id/upload_frame"
-        android:layout_width="411dp"
-        android:layout_height="662dp"
+        android:layout_width="410dp"
+        android:layout_height="696dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,29 +47,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/button_back_search"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="返回搜尋種類" />
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="新增" />
+                    <Button
+                        android:id="@+id/button_back_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="返回搜尋種類" />
+
+                    <Button
+                        android:id="@+id/button_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="新增" />
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="367dp"
+                    android:layout_height="577dp">
+
+                </ListView>
+
             </LinearLayout>
 
-            <ListView
-                android:id="@+id/listView"
-                android:layout_width="333dp"
-                android:layout_height="420dp">
+            <FrameLayout
+                android:id="@+id/LoginRegister"
+                android:layout_width="match_parent"
+                android:layout_height="646dp"
+                android:background="#9C1F22">
 
-            </ListView>
+            </FrameLayout>
+
         </LinearLayout>
 
     </FrameLayout>

@@ -28,6 +28,21 @@ public class DisplayActivity extends AppCompatActivity {
 
 
 
+        FrameLayout navLayout = findViewById(R.id.LoginRegister);
+
+        GradientDrawable shape2 = new GradientDrawable();
+        shape2.setShape(GradientDrawable.RECTANGLE);
+        shape2.setColor(getResources().getColor(R.color.nav_color)); // 背景颜色，可以根據需要進行修改
+        float[] radii2 = {50f, 50f, 50f, 50f, 0f, 0f, 0f, 0f}; // 上左，上右，下右，下左圆角半徑
+        shape2.setCornerRadii(radii2); // 设置各个角的圆角半径
+
+        // 設置邊框的颜色和寬度（例如：黄色和5像素寬度）
+        shape2.setStroke(5, getResources().getColor(R.color.box_color));
+
+        navLayout.setBackground(shape2);
+
+
+
         ListView listView = findViewById(R.id.listView);
         Button buttonBack = findViewById(R.id.button_back);
         Button buttonBackMain = findViewById(R.id.button_back_search);
