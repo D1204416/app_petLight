@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class DisplayActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    private ArrayList<Todo> todoArrayList = new ArrayList<Todo>();
+    private ArrayList<Pet> todoArrayList = new ArrayList<Pet>();
     private ActivityResultLauncher<Intent> intentActivityResultLanucher;
 
     @Override
@@ -50,25 +50,28 @@ public class DisplayActivity extends AppCompatActivity implements AdapterView.On
 
                             if(action.equals("new")){
                                 // 處理新增待辦事項
-                                String newTitle = o.getData().getStringExtra("TITLE");
-                                String newContent = o.getData().getStringExtra("CONTENT");
-                                int newNum = o.getData().getIntExtra("NUM", 0); // 獲取數量，預設為 0
+                                String newPetName = o.getData().getStringExtra("PETNAME");
+                                String newPetBreed = o.getData().getStringExtra("PETBREED");
+                                String newLocation = o.getData().getStringExtra("LOCATION");
+                                String newPhone = o.getData().getStringExtra("PHONE");
                                 String imgName = o.getData().getStringExtra("IMG_NAME"); // 獲取圖片名稱
 
-                                Todo newData = new Todo(newTitle, newContent, newNum, imgName);
+                                Pet newData = new Pet(newPetName, newPetBreed, imgName, newLocation, newPhone);
                                 todoArrayList.add(newData);
                             } else if (action.equals("edit")) {
                                 // 處理編輯待辦事項
                                 String index = o.getData().getStringExtra("INDEX");
-                                String newTitle = o.getData().getStringExtra("TITLE");
-                                String newContent = o.getData().getStringExtra("CONTENT");
-                                int newNum = o.getData().getIntExtra("NUM", 0); // 獲取數量，預設為 0
+                                String newPetName = o.getData().getStringExtra("PETNAME");
+                                String newPetBreed = o.getData().getStringExtra("PETBREED");
+                                String newLocation = o.getData().getStringExtra("LOCATION");
+                                String newPhone = o.getData().getStringExtra("PHONE");
                                 String imgName = o.getData().getStringExtra("IMG_NAME"); // 獲取圖片名稱
 
-                                Todo existingTodo = todoArrayList.get(Integer.parseInt(index));
-                                existingTodo.setTitle(newTitle);
-                                existingTodo.setContent(newContent);
-                                existingTodo.setNum(newNum); // 更新數量
+                                Pet existingTodo = todoArrayList.get(Integer.parseInt(index));
+                                existingTodo.setPetName(newPetName);
+                                existingTodo.setPetBreed(newPetBreed);
+                                existingTodo.setLocation(newLocation);
+                                existingTodo.setLocation(newPhone);
                                 existingTodo.setImgName(imgName); // 更新圖片名稱
                             } else{
                                 // 處理刪除待辦事項
@@ -100,17 +103,21 @@ public class DisplayActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Todo item = todoArrayList.get(i);
-        String title = item.getTitle();
-        String content = item.getContent();
-        int num = item.getNum(); // 獲取當前項目的數量
+        Pet item = todoArrayList.get(i);
+        String petName = item.getPetName();
+        String petBreed = item.getPetBreed();
+        String location = item.getLocation();
+        String img = item.getImgName();
+        String phone = item.getPhone();
+
 
         Intent intent = new Intent(this, TodoActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("ACTION", "edit");
-        bundle.putString("TITLE", title);
-        bundle.putString("CONTENT", content);
-        bundle.putInt("NUM", num); // 將數量傳遞到編輯活動
+        bundle.putString("PETNAME", petName);
+        bundle.putString("PETBREED", petBreed);
+        bundle.putString("LOCATION", location);
+        bundle.putString("PHONE", phone);
         bundle.putInt("INDEX", i);
 
         intent.putExtras(bundle);
