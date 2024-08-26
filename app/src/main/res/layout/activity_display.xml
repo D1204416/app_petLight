@@ -7,47 +7,55 @@
     android:layout_height="match_parent"
     tools:context=".DisplayActivity">
 
-    <ListView
-        android:id="@+id/todoListView"
-        android:layout_width="409dp"
-        android:layout_height="500dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="材料庫存管理"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="113dp"
-        android:orientation="horizontal"
+        android:layout_width="373dp"
+        android:layout_height="689dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/todoListView">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497">
 
-        <Button
-            android:id="@+id/newButton"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="狗狗協尋"
+            android:textAlignment="center"
+            android:textSize="34sp" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:onClick="newButtonClick"
-            android:text="新增" />
+            android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="上一頁" />
+
+            <Button
+                android:id="@+id/newButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:onClick="newButtonClick"
+                android:text="刊登" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/todoListView"
+            android:layout_width="409dp"
+            android:layout_height="500dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

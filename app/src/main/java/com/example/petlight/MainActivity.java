@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onActivityResult(ActivityResult result) {
                         // 寫另一個Activity回傳後, 得到回傳的資料之後的方法
                         if (result.getData() != null && result.getResultCode() == Activity.RESULT_OK) {
-//                            bmi = result.getData().getDoubleExtra("BMI", -1);
-
 
                         }
                     }
