@@ -92,7 +92,8 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/home" />
+                            android:tint="#F3C377"
+                            app:srcCompat="@drawable/home_2" />
 
                         <ImageView
                             android:id="@+id/imageView14"
@@ -127,7 +128,7 @@
                             android:layout_weight="1"
                             android:text="首頁"
                             android:textAlignment="center"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#F3C377"
                             android:textSize="18sp" />
 
                         <TextView
