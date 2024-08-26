@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,13 +39,31 @@ public class MainActivity extends AppCompatActivity {
 
         FrameLayout frameLayout = findViewById(R.id.rounded_frame);
 
+
         GradientDrawable shape = new GradientDrawable();
         shape.setShape(GradientDrawable.RECTANGLE);
-        shape.setColor(getResources().getColor(android.R.color.white)); // 背景颜色，可以根据需要进行修改
-        float[] radii = {40f, 40f, 40f, 40f, 0f, 0f, 0f, 0f}; // 上左，上右，下右，下左圆角半径
-        shape.setCornerRadii(radii); // 设置各个角的圆角半径
+        shape.setColor(getResources().getColor(android.R.color.white)); // 背景颜色，可以根據需要進行修改
+        float[] radii = {50f, 50f, 50f, 50f, 0f, 0f, 0f, 0f}; // 上左，上右，下右，下左圆角半徑
+        shape.setCornerRadii(radii); // 設置各個角的圆角半徑
 
         frameLayout.setBackground(shape);
+
+
+
+        FrameLayout navLayout = findViewById(R.id.LoginRegister);
+
+        GradientDrawable shape2 = new GradientDrawable();
+        shape2.setShape(GradientDrawable.RECTANGLE);
+        shape2.setColor(getResources().getColor(R.color.nav_color)); // 背景颜色，可以根據需要進行修改
+        float[] radii2 = {50f, 50f, 50f, 50f, 0f, 0f, 0f, 0f}; // 上左，上右，下右，下左圆角半徑
+        shape2.setCornerRadii(radii2); // 设置各个角的圆角半径
+
+        // 設置邊框的颜色和寬度（例如：黄色和5像素寬度）
+        shape2.setStroke(5, getResources().getColor(R.color.box_color));
+
+        navLayout.setBackground(shape2);
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
