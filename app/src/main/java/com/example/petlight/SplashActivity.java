@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static final int SPLASH_DISPLAY_LENGTH = 3000; // 延遲2秒
+    private static final int SPLASH_DISPLAY_LENGTH = 2500; // 延遲2秒
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
