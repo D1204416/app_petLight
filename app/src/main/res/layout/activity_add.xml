@@ -1,8 +1,8 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg16"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".AddActivity">
@@ -11,67 +11,93 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:scaleType="centerCrop"
-        android:background="@android:color/darker_gray"
+        android:background="@color/white"
+        android:contentDescription="Pet Image"
 
-        android:contentDescription="Pet Image"/>
+        android:scaleType="centerCrop" />
 
 
     <Button
         android:id="@+id/button_upload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFCC35"
         android:text="上傳照片"
-        android:layout_marginTop="16dp"/>
+        android:textColor="#9C1F22"
+        android:textSize="22dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editText_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:hint="寵物姓名"
-        android:layout_marginTop="16dp"/>
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/editText_breed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:hint="寵物品種"
-        android:layout_marginTop="8dp"/>
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/editText_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:hint="走失地點"
-        android:layout_marginTop="8dp"/>
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/editText_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:hint="聯絡電話"
         android:inputType="phone"
-        android:layout_marginTop="8dp"/>
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="22sp" />
 
     <!-- 新增確認及返回按鈕 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/button_confirm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:text="確認"/>
+            android:backgroundTint="#FFCC35"
+            android:text="確認"
+            android:textColor="#9C1F22"
+            android:textSize="22dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:text="返回"/>
+            android:backgroundTint="#FFCC35"
+            android:text="返回"
+            android:textColor="#9C1F22"
+            android:textSize="22dp"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

@@ -71,7 +71,7 @@
             <FrameLayout
                 android:id="@+id/LoginRegister"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="83dp"
                 android:background="#9C1F22">
 
                 <LinearLayout
@@ -124,7 +124,7 @@
                             android:id="@+id/textView10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="3dp"
+                            android:layout_marginBottom="2dp"
                             android:layout_weight="1"
                             android:text="首頁"
                             android:textAlignment="center"
@@ -135,7 +135,7 @@
                             android:id="@+id/textView11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="3dp"
+                            android:layout_marginBottom="2dp"
                             android:layout_weight="1"
                             android:text="會員"
                             android:textAlignment="center"
@@ -146,7 +146,7 @@
                             android:id="@+id/textView12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="3dp"
+                            android:layout_marginBottom="2dp"
                             android:layout_weight="1"
                             android:text="客服"
                             android:textAlignment="center"
