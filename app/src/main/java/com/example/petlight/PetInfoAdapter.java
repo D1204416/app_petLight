@@ -36,6 +36,8 @@ public class PetInfoAdapter extends ArrayAdapter<PetInfo> {
     TextView textViewPhone = convertView.findViewById(R.id.textView_phone);
     ImageView iconCall = convertView.findViewById(R.id.icon_call);
     ImageView iconMap = convertView.findViewById(R.id.icon_map);
+    ImageView iconshare = convertView.findViewById(R.id.icon_share);
+    ImageView iconLightbulb = convertView.findViewById(R.id.icon_light_bulb);
 
     if (petInfo != null) {
       imageView.setImageBitmap(petInfo.getImage());
@@ -69,10 +71,74 @@ public class PetInfoAdapter extends ArrayAdapter<PetInfo> {
 //          Log.e("PetInfoAdapter", "No application found to handle map intent");
 //        }
       });
-    }
 
-    return convertView;
+    // Share icon click event
+    iconshare.setOnClickListener(v -> {
+      Log.d("PetInfoAdapter", "Share button clicked");
+      String shareText = "寵物姓名: " + petInfo.getName() + "\n" +
+              "寵物品種: " + petInfo.getBreed() + "\n" +
+              "走失地點: " + petInfo.getLocation() + "\n" +
+              "聯絡電話: " + petInfo.getPhone();
+
+      Intent shareIntent = new Intent(Intent.ACTION_SEND);
+      shareIntent.setType("text/plain");
+      shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+
+      if (shareIntent.resolveActivity(getContext().getPackageManager()) != null) {
+        getContext().startActivity(Intent.createChooser(shareIntent, "分享寵物信息"));
+      } else {
+        Log.e("PetInfoAdapter", "No application found to handle share intent");
+      }
+    });
+
+    // Lightbulb icon click event
+    iconLightbulb.setOnClickListener(this::startIconAnimation);
   }
+
+        return convertView;
 }
 
+private void startIconAnimation(View view) {
+  // Save the original properties
+  float originalScaleX = view.getScaleX();
+  float originalScaleY = view.getScaleY();
+  float originalTranslationY = view.getTranslationY();
+  float originalX = view.getX();
+  float originalY = view.getY();
 
+  // Get screen height and width
+  int screenHeight = view.getRootView().getHeight();
+  int screenWidth = view.getRootView().getWidth();
+
+  // Calculate the bottom center position
+  float targetX = screenWidth / 2f - view.getWidth() / 2f;
+  float targetY = screenHeight - view.getHeight();
+
+  // Phase 1: Move the icon to the bottom center without scaling
+  view.animate()
+          .x(targetX)
+          .y(targetY)
+          .setDuration(2000)  // Duration for moving to bottom center
+          .withEndAction(() -> {
+            // Phase 2: Move the icon upwards while gradually scaling it up
+            view.animate()
+                    .translationY(-screenHeight)  // Move up by the height of the screen
+                    .scaleX(7f)  // Gradually scale up
+                    .scaleY(7f)
+                    .setDuration(9000)  // Duration for moving upwards and scaling
+                    .withEndAction(() -> {
+                      // Return to original state
+                      view.animate()
+                              .scaleX(originalScaleX)
+                              .scaleY(originalScaleY)
+                              .translationY(originalTranslationY)
+                              .x(originalX)
+                              .y(originalY)
+                              .setDuration(1000)  // Duration for returning to original state
+                              .start();
+                    })
+                    .start();
+          })
+          .start();
+}
+}
