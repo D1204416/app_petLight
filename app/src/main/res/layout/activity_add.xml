@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="#FFCC35"
-        android:text="上傳照片"
+        android:text="+ 上傳照片"
         android:textColor="#9C1F22"
         android:textSize="22dp"
         android:textStyle="bold" />
