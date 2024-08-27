@@ -29,8 +29,8 @@ public class DisplayActivity extends AppCompatActivity {
 
         // 設置反回按鈕的點擊事件，返回 MainActivity
         buttonBackMain.setOnClickListener(v -> {
-//            Intent backIntent = new Intent(DisplayActivity.this, MainActivity.class);
-//            startActivity(backIntent);
+            Intent backIntent = new Intent(DisplayActivity.this, MainActivity.class);
+            startActivity(backIntent);
             finish(); // 结束當前活動
 
         });
